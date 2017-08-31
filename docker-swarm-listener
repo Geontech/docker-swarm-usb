@@ -4,8 +4,6 @@ while read line; do
   # Notify user when event is received
   echo
   echo "Detected a container was launched on this host with image: $2"
-  # Unload kernel modules for RTL SDR in case we are using this device
-  modprobe -r dvb_usb_rtl28xxu rtl2832 rtl2830
   # Set the permissions on the container to access USB device
   /usr/local/bin/docker-swarm-enable-usb $1 $2
 done
